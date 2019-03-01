@@ -1,11 +1,14 @@
 from time import time
 import random
+import msvcrt
 
 def TestSentence():
-    s1= "This is america. And we have Donal Trump as our president. Califonia is known as silicon valley. "
+    s1= "This is america. "
     s2="Big fox ate a little dog."
+    s3='And we have Donal Trump as our president.'
+    s4='Califonia is known as silicon valley.'
     corpus=list()
-    corpus=[s1,s2]
+    corpus=[s1,s2,s4,s3]
     return(random.choice(corpus))
 
 def getString():
@@ -19,17 +22,30 @@ def getString():
     StringLen=len(CharString)
     getUserString(CharString,StringLen)
 
-    # print(CharString,StringLen)
-
 def getUserString(CharString,StringLen):
     print('Begin :')
+    error=0
+    correct=0
     for i in range (0,StringLen):
-        getuserInput=input()
-        if(getuserInput==CharString[i]):
-            print('success')
+        # getuserInput=raw_input()
+        print(CharString[i])
+        getuserInput = msvcrt.getch()
+        check=calculate(CharString,getuserInput,i)
+        if(check==1):
+            correct=correct+1
         else:
-            break
+            error=error+1
+    result(correct,error)
 
+def calculate(CharString,getuserInput,i):
+    if(ord(getuserInput)==ord(CharString[i])):
+            return(1)
+    else:
+        return(0)
+
+def result(correctCount,errorCount):
+    print('Correct Count : \t',correctCount)
+    print('\nError Count : \t',errorCount)
 if __name__ == "__main__":
     # Clear screen(cmd/terminal)
     # _ = call('clear' if os.name =='posix' else 'cls')
