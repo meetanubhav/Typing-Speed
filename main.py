@@ -1,6 +1,5 @@
-# from time import time
+from time import time
 import random
-from os import system, name
 
 def TestSentence():
     s1= "This is america. And we have Donal Trump as our president. Califonia is known as silicon valley. "
@@ -10,10 +9,28 @@ def TestSentence():
     return(random.choice(corpus))
 
 def getString():
-    getCharacter=input('Enter string the above string : \n')
+    getText=TestSentence()
+    CharString=list()
+    # putting string into list
+    for getText in getText:
+        CharString.append(getText)
+
+    # System String lenght 
+    StringLen=len(CharString)
+    getUserString(CharString,StringLen)
+
+    # print(CharString,StringLen)
+
+def getUserString(CharString,StringLen):
+    print('Begin :')
+    for i in range (0,StringLen):
+        getuserInput=input()
+        if(getuserInput==CharString[i]):
+            print('success')
+        else:
+            break
 
 if __name__ == "__main__":
-    _ = call('clear' if os.name =='posix' else 'cls')
-    getText=TestSentence()
-    print(getText)
+    # Clear screen(cmd/terminal)
+    # _ = call('clear' if os.name =='posix' else 'cls')
     getString()
