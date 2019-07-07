@@ -2,6 +2,8 @@
 
 A **PYTHON** based Typing Speed Calculator. 
 
+Simple **Command Line Interface
+
 **Features**
 	1. *Increase your type speed with this simple application
 	2. *Check you Correct / Incorrect input counts
